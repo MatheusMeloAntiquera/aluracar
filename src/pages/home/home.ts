@@ -4,10 +4,11 @@ import { Carro } from '../../interfaces/carro';
 import { HttpErrorResponse } from '@angular/common/http';
 import { CarrosServiceProvider } from '../../providers/carros-service/carros-service';
 import { NavLifeCycles } from '../../utils/ionic/nav/nav-lifecycles';
+import { EscolhaPage } from '../escolha/escolha';
 
 @Component({
   selector: 'page-home',
-  templateUrl: 'home.html'
+  templateUrl: 'home.html',
 })
 export class HomePage implements NavLifeCycles {
 
@@ -47,6 +48,11 @@ export class HomePage implements NavLifeCycles {
 
       },
     )
+  }
+
+  selecionaCarro(carro: Carro) {
+    console.log(carro); 
+    this.navCtrl.push(EscolhaPage, {carro: carro});
   }
 
 }
