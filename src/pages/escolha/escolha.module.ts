@@ -11,6 +11,9 @@ import { EscolhaPage } from './escolha';
   ],
   entryComponents: [
     EscolhaPage
+  ],
+  exports: [
+    EscolhaPage
   ]
 })
 export class EscolhaPageModule {}
