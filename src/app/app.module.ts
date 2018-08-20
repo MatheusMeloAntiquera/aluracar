@@ -19,7 +19,7 @@ import { EscolhaPageModule } from '../pages/escolha/escolha.module';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     HttpClientModule,
-    EscolhaPageModule
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [

@@ -52,7 +52,7 @@ export class HomePage implements NavLifeCycles {
 
   selecionaCarro(carro: Carro) {
     console.log(carro); 
-    this.navCtrl.push(EscolhaPage, {carro: carro});
+    this.navCtrl.push(EscolhaPage.name, {carro: carro});
   }
 
 }
