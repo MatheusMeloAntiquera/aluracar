@@ -1,7 +1,8 @@
+import { EscolhaPageModule } from './../escolha/escolha.module';
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { HomePage } from './home';
-import { EscolhaPage } from '../escolha/escolha';
+
 
 @NgModule({
     declarations: [
@@ -9,7 +10,7 @@ import { EscolhaPage } from '../escolha/escolha';
     ],
     imports: [
         IonicPageModule.forChild(HomePage),
-        EscolhaPage
+        EscolhaPageModule
     ],
     entryComponents: [
         HomePage
