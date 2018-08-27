@@ -94,12 +94,14 @@ export class CadastroPage {
         }
         return observable;
       })
-      .subscribe(
-        (data) => mensagem = "Agendamento realizado!",
-        (error: Error) => mensagem = error.message,
+      .finally(
         () => {
           this._alerta.setSubTitle(mensagem).present();
         }
+      )
+      .subscribe(
+        (data) => mensagem = "Agendamento realizado!",
+        (error: Error) => mensagem = error.message,
       )
 
   }
