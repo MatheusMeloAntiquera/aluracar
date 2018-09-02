@@ -1,3 +1,4 @@
+import { ApiServiceProvider } from './../api-service/api-service';
 import { Usuario } from './../../interfaces/usuario';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -11,12 +12,15 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class UsuariosServiceProvider {
   private _usuarioLogado: Usuario;
-  constructor(public http: HttpClient) {
-
+  _url: string;
+  constructor(
+    public http: HttpClient,
+    private _api: ApiServiceProvider) {
+    this._url = this._api.url;
   }
 
   efetuaLogin(email, senha) {
-    return this.http.post<Usuario>('http://localhost:8080/api/login', { email, senha })
+    return this.http.post<Usuario>(this._url + 'login', { email, senha })
       .do((usuario: Usuario) => this._usuarioLogado = usuario);
   }
 
