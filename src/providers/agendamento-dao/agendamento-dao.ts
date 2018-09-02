@@ -38,7 +38,6 @@ export class AgendamentoDaoProvider {
   }
 
   listaAgendamentos() {
-    console.log(this._storage.driver);
     let agendamentos: Agendamento[] = [];
 
     let promise = this._storage.forEach((agendamento: Agendamento) => {

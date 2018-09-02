@@ -13,7 +13,7 @@
       {{agendamento.nomeCliente}} - {{agendamento.modeloCarro}}
 
       <button ion-button item-end icon-only clear
-        *ngIf="!agendamento.enviado" (click)="reenviar(agendamento)">
+        *ngIf="!agendamento.enviado" (click)="this.reenviar(agendamento)">
         <ion-icon name="refresh"></ion-icon>
       </button>
     </ion-item>
