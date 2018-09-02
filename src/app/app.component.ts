@@ -1,3 +1,5 @@
+import { UsuariosServiceProvider } from './../providers/usuarios-service/usuarios-service';
+import { PerfilPage } from './../pages/perfil/perfil';
 import { LoginPage } from './../pages/login/login';
 import { HomePage } from './../pages/home/home';
 import { ListaAgendamentosPage } from './../pages/lista-agendamentos/lista-agendamentos';
@@ -12,23 +14,30 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 })
 export class MyApp {
   @ViewChild(Nav) public nav: Nav;
-  rootPage:any = LoginPage;
-  
+  rootPage: any = LoginPage;
+
   public paginas = [
-    {titulo: 'Agendamentos', pagina: ListaAgendamentosPage.name, icone: 'calendar' }
+    { titulo: 'Agendamentos', pagina: ListaAgendamentosPage.name, icone: 'calendar' },
+    { titulo: 'Perfil', pagina: PerfilPage.name, icone: 'person' }
   ];
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen  ) {
+  constructor(platform: Platform,
+    statusBar: StatusBar,
+    splashScreen: SplashScreen,
+    private _usuarioService: UsuariosServiceProvider) {
     platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();
     });
   }
 
-  public abrirPagina(pagina){
+  public abrirPagina(pagina) {
+    console.log(pagina);
     this.nav.push(pagina);
+  }
+
+  get usuarioLogado() {
+    return this._usuarioService.obtemUsuarioLogado();
   }
 }
 
