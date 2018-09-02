@@ -83,7 +83,7 @@ export class CadastroPage {
         if (duplicado) {
           throw new Error('Agendamento já existente');
         }
-        console.log('teste');
+        
         return this._agendamentoService.agenda(agendamento)
       })
       .mergeMap((valor) => {

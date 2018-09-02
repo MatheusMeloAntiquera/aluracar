@@ -1,3 +1,4 @@
+import { ListaAgendamentosPageModule } from './../pages/lista-agendamentos/lista-agendamentos.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -29,11 +30,12 @@ import { AgendamentoDaoProvider } from '../providers/agendamento-dao/agendamento
     BrowserModule,
     IonicModule.forRoot(MyApp),
     HttpClientModule,
+    ListaAgendamentosPageModule,
     IonicStorageModule.forRoot({
       name: "aluracar",
       storeName: "agendamentos",
-      driverOrder: ['indexeddb'] 
-    })
+      driverOrder: ['indexeddb', 'sqlite', 'websql']
+    }),
 
   ],
   bootstrap: [IonicApp],
