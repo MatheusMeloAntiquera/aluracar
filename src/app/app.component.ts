@@ -1,3 +1,4 @@
+import { LoginPage } from './../pages/login/login';
 import { HomePage } from './../pages/home/home';
 import { ListaAgendamentosPage } from './../pages/lista-agendamentos/lista-agendamentos';
 import { Component, ViewChild } from '@angular/core';
@@ -11,8 +12,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 })
 export class MyApp {
   @ViewChild(Nav) public nav: Nav;
-  rootPage:any = HomePage;
-
+  rootPage:any = LoginPage;
+  
   public paginas = [
     {titulo: 'Agendamentos', pagina: ListaAgendamentosPage.name, icone: 'calendar' }
   ];

@@ -1,3 +1,4 @@
+import { LoginPageModule } from './../pages/login/login.module';
 import { ListaAgendamentosPageModule } from './../pages/lista-agendamentos/lista-agendamentos.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
@@ -20,17 +21,20 @@ import 'rxjs/add/operator/mergeMap';
 import 'rxjs/add/observable/fromPromise';
 import 'rxjs/add/observable/of';
 import { AgendamentoDaoProvider } from '../providers/agendamento-dao/agendamento-dao';
+import { LoginPage } from '../pages/login/login';
+import { UsuariosServiceProvider } from '../providers/usuarios-service/usuarios-service';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     HttpClientModule,
     ListaAgendamentosPageModule,
+    LoginPageModule,
     IonicStorageModule.forRoot({
       name: "aluracar",
       storeName: "agendamentos",
@@ -49,7 +53,8 @@ import { AgendamentoDaoProvider } from '../providers/agendamento-dao/agendamento
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     CarrosServiceProvider,
     AgendamentosServiceProvider,
-    AgendamentoDaoProvider
+    AgendamentoDaoProvider,
+    UsuariosServiceProvider
   ]
 })
 export class AppModule { }
