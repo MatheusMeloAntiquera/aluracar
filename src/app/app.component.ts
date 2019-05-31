@@ -39,5 +39,9 @@ export class MyApp {
   get usuarioLogado() {
     return this._usuarioService.obtemUsuarioLogado();
   }
+
+  get avatar(){
+    return this._usuarioService.obtemAvatar();
+  }
 }
 

@@ -1,6 +1,7 @@
+import { Camera } from '@ionic-native/camera';
 import { UsuariosServiceProvider } from './../../providers/usuarios-service/usuarios-service';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, normalizeURL } from 'ionic-angular';
 
 /**
  * Generated class for the PerfilPage page.
@@ -19,7 +20,8 @@ export class PerfilPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    private _usuariosService: UsuariosServiceProvider
+    private _usuariosService: UsuariosServiceProvider,
+    private _camera: Camera
   ) {
   }
 
@@ -27,4 +29,19 @@ export class PerfilPage {
     return this._usuariosService.obtemUsuarioLogado();
   }
 
+  tirarFoto() {
+    this._camera.getPicture({
+      destinationType: this._camera.DestinationType.FILE_URI,
+      saveToPhotoAlbum: true,
+      correctOrientation: true
+    })
+      .then(fotoUri => {
+       
+        this._usuariosService.salvaAvatar(fotoUri);
+      }).catch(error => console.log(error));
+  }
+
+  get avatar() {
+    return this._usuariosService.obtemAvatar();
+  }
 }
